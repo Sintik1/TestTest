@@ -156,6 +156,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
 
 public class TestFieldOrderInCorrect {
     WebDriver driver;
@@ -207,6 +208,9 @@ public class TestFieldOrderInCorrect {
        // chromeOptions.addArguments("--disable-gpu");
         //chromeOptions.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(chromeOptions);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
         driver.get(BASE_URI);
 
     }
