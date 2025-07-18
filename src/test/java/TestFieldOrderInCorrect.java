@@ -197,7 +197,7 @@ public class TestFieldOrderInCorrect {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
