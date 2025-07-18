@@ -175,7 +175,7 @@ public class TestFieldOrderInCorrect {
 
     @Before
     public void setup() {
-        try {
+       /* try {
             System.out.println("Setting up WebDriver...");
             WebDriverManager.chromedriver().setup();
             System.out.println("ChromeDriver version: " + WebDriverManager.chromedriver().getDownloadedDriverVersion());
@@ -196,8 +196,20 @@ public class TestFieldOrderInCorrect {
             driver.get(BASE_URI);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--window-size=1920,1080");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(chromeOptions);
+        driver.get(BASE_URI);
+
     }
+
 
     @Test
     // Негативный сценарий отображения ошибки при некорректном вводе поля "Имя"

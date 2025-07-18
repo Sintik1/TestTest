@@ -138,6 +138,8 @@ public class HeadPage {
 
     //Метод клика по кнопке заказать в хедере сайта
     public void clickButtonOrderInHeaderPage() {
+        WebDriverWait wait= new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.elementToBeClickable(buttonOrderInHeaderPage));
         click(buttonOrderInHeaderPage);
     }
 
@@ -154,6 +156,8 @@ public class HeadPage {
 
     //Метод клика по кнопке куки
     public void clickButtonCookie(){
+WebDriverWait wait =new WebDriverWait(driver,5);
+wait.until(ExpectedConditions.elementToBeClickable(buttonCookie));
         click(buttonCookie);
     }
     //Метод клика по кнопке "Заказать" в середине сайта
