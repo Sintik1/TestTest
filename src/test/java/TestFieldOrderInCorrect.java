@@ -198,6 +198,7 @@ public class TestFieldOrderInCorrect {
             e.printStackTrace();
         }*/
         System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
