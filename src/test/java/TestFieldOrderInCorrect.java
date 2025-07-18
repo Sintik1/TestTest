@@ -152,11 +152,14 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
+import java.util.logging.Level;
 
 public class TestFieldOrderInCorrect {
     WebDriver driver;
@@ -200,13 +203,24 @@ public class TestFieldOrderInCorrect {
         }*/
         System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
         System.setProperty("webdriver.chrome.verboseLogging", "true");
+        // Настройка логирования
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
+        logPrefs.enable(LogType.DRIVER, Level.ALL);
+        logPrefs.enable(LogType.CLIENT, Level.ALL);
+        logPrefs.enable(LogType.SERVER, Level.ALL);
+
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--window-size=1920,1080");
-        //chromeOptions.addArguments("--disable-dev-shm-usage");
-       // chromeOptions.addArguments("--disable-gpu");
-        //chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+       chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--remote-allow-origins=*");
+
+        //Передача настроек логирования
+        chromeOptions.setCapability("goog:loggingPrefs", logPrefs);
+
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
