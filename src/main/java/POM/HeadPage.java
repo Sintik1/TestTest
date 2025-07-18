@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class HeadPage {
     WebDriver driver;
     WebDriverWait wait;
@@ -108,7 +110,7 @@ public class HeadPage {
 
     public HeadPage(WebDriver driver) {
         this.driver = driver;
-        this.wait=new WebDriverWait(driver,5);
+        this.wait=new WebDriverWait(driver,Duration.ofSeconds(5));
     }
 
     //Вспомогательный метод для клика
@@ -138,7 +140,7 @@ public class HeadPage {
 
     //Метод клика по кнопке заказать в хедере сайта
     public void clickButtonOrderInHeaderPage() {
-        WebDriverWait wait= new WebDriverWait(driver,5);
+        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(buttonOrderInHeaderPage));
         click(buttonOrderInHeaderPage);
     }
@@ -156,7 +158,7 @@ public class HeadPage {
 
     //Метод клика по кнопке куки
     public void clickButtonCookie(){
-WebDriverWait wait =new WebDriverWait(driver,5);
+WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(5));
 wait.until(ExpectedConditions.elementToBeClickable(buttonCookie));
         click(buttonCookie);
     }

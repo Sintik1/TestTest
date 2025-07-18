@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 
 public class RentPage {
     WebDriver driver;
@@ -94,7 +96,7 @@ public class RentPage {
 
     public RentPage(WebDriver driver) {
         this.driver = driver;
-        this.wait=new WebDriverWait(driver,5);
+        this.wait=new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
 

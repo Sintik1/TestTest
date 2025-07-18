@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 import java.util.Set;
 
 public class YandexPage {
@@ -24,7 +26,7 @@ public class YandexPage {
 
     //Метод проверки отображения страницы Яндекс
     public boolean isDisplayedYandexPage() {
-            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             try {
                 // Ожидаем, пока появится новая вкладка
                 wait.until(driver -> driver.getWindowHandles().size() > 1);
